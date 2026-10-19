@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>R.K. Enterprises — Laboratory Products Since 1984</title>
+<meta name="description" content="Manufacturers & wholesalers of laboratory chemicals, equipment & scientific supplies, serving laboratories across India from Jaipur since 1984.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060a13; --ink:#eef2ff; --cyan:#22e0ff; --blue:#2f6bff; --line:rgba(255,255,255,.09);
+  --pad:clamp(20px,6vw,114px);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:var(--bg);color:var(--ink);}
+body{
+  font-family:'Cormorant',serif; min-height:100vh; overflow-x:hidden;
+  background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:64px 64px;
+}
+a{color:inherit;text-decoration:none;}
+.mono{font-family:'Cormorant',serif;text-transform:uppercase;}
+
+.nav{
+  position:fixed; top:calc(16px + env(safe-area-inset-top,0px)); left:var(--pad); right:var(--pad); z-index:50;
+  height:64px; padding:0 22px; display:flex; align-items:center; justify-content:space-between; gap:24px;
+  border:1px solid var(--line); background:rgba(8,12,24,.72); backdrop-filter:blur(12px); white-space:nowrap;
+}
+.logo{display:flex;align-items:center;gap:12px;flex:none;}
+.logo svg{width:32px;height:35px;flex:none;}
+.logo b{font-family:'Cormorant',serif;font-weight:800;font-size:15px;line-height:1.1;display:block;}
+.logo small{font-size:9px;letter-spacing:.25em;color:#9aa6c4;display:block;margin-top:3px;}
+.nav ul{display:flex;align-items:center;justify-content:center;flex:1;gap:clamp(14px,2.2vw,36px);list-style:none;font-size:11px;letter-spacing:.2em;}
+.nav ul a{transition:color .2s;opacity:.9;} .nav ul a:hover{color:var(--cyan);opacity:1;}
+.cta{flex:none;background:var(--cyan);color:#04101a;padding:11px 18px;font-size:11px;letter-spacing:.2em;display:inline-flex;gap:8px;align-items:center;transition:transform .25s,box-shadow .25s;}
+.cta:hover{box-shadow:0 0 34px rgba(34,224,255,.45);transform:translateY(-2px);}
+
+.hero{position:relative;min-height:100vh;padding:170px var(--pad) 80px;overflow:hidden;}
+#scene{opacity:.85;position:absolute;inset:0;z-index:0;width:100%;height:100%;}
+.hero-copy{position:relative;z-index:2;pointer-events:none;}
+.hero-copy a{pointer-events:auto;}
+.eyebrow{display:flex;align-items:center;gap:16px;color:var(--cyan);font-size:13.5px;letter-spacing:.3em;}
+.eyebrow::before{content:"";flex:none;width:50px;height:1px;background:#8fa0c4;}
+.h1{font-family:'Cormorant',serif;font-weight:800;text-transform:uppercase;font-size:clamp(2rem,4.6vw,5.5rem);line-height:.98;letter-spacing:-.035em;margin-top:36px;}
+.h1 span{display:block;opacity:0;transform:translateY(40px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards;}
+.h1 span:nth-child(2){animation-delay:.12s;} .h1 span:nth-child(3){animation-delay:.24s;}
+.grad{background:linear-gradient(90deg,var(--cyan),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.outline{font-style:normal;-webkit-text-stroke:1.5px rgba(238,242,255,.28);color:transparent;}
+.lede{margin-top:56px;max-width:640px;font-size:clamp(1rem,1.5vw,1.45rem);line-height:1.55;letter-spacing:-.02em;}
+@keyframes rise{to{opacity:1;transform:none;}}
+
+.cur-dot,.cur-ring{position:fixed;top:0;left:0;z-index:999;pointer-events:none;border-radius:50%;display:none;}
+.cur-dot{width:7px;height:7px;background:var(--cyan);margin:-3.5px;}
+.cur-ring{width:46px;height:46px;margin:-23px;border:1px solid rgba(238,242,255,.35);transition:width .25s,height .25s,margin .25s,border-color .25s;}
+.cur-ring.big{width:78px;height:78px;margin:-39px;border-color:var(--cyan);}
+@media (pointer:fine){body,a,button{cursor:none;} .cur-dot,.cur-ring{display:block;}}
+
+@media (max-width:1100px){.nav ul{letter-spacing:.12em;font-size:10px;gap:14px;} .logo small{display:none;}}
+@media (max-width:900px){
+  .nav ul{display:none;} .nav{height:58px;padding:0 14px;}
+  .cta{padding:10px 12px;font-size:10px;} .logo small{display:none;}
+  .hero{padding-top:130px;} .eyebrow{font-size:11px;letter-spacing:.2em;}
+}
+@media (prefers-reduced-motion:reduce){.h1 span{animation:none;opacity:1;transform:none;}}
+
+/* ===== ECOSYSTEM SECTION ===== */
+.nav{transition:transform .45s cubic-bezier(.6,0,.2,1),opacity .3s;}
+.nav.away{transform:translateY(-140%);opacity:0;pointer-events:none;}
+.eco{--cyan:#2be0f2;--ink:#060a15;--cx:49.7%;--cy:46%;--mono:'Cormorant',serif;--wide:'Cormorant',serif;
+  position:relative;height:100vh;height:100svh;overflow:hidden;background:var(--ink);--v:min(1vh,.9vw);font-family:var(--mono);}
+.eco .bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(60% 65% at var(--cx) var(--cy),rgba(20,40,110,.32),transparent 70%),radial-gradient(120% 120% at 50% 50%,transparent 55%,rgba(0,0,0,.45)),linear-gradient(#070b17,#050813)}
+.eco .grain{position:absolute;inset:0;pointer-events:none;opacity:.14;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.eco .head{position:absolute;top:calc(3.4vh + env(safe-area-inset-top,0px));left:3.1vw;z-index:5;font-size:12px;letter-spacing:.24em;font-weight:500}
+.eco .title{display:flex;align-items:center;gap:14px;color:#3fd3e0}
+.eco .title i{width:32px;height:1px;background:#3fd3e0}
+.eco .sub{margin-top:14px;color:#e6ecf5}
+.eco .core{position:absolute;left:var(--cx);top:var(--cy);width:0;height:0;z-index:2}
+.eco .ring{position:absolute;border-radius:50%;border:1px solid rgba(140,170,220,.16);translate:-50% -50%}
+.eco .r1{width:calc(var(--v)*65.4);height:calc(var(--v)*65.4);border-color:rgba(140,170,220,.1)}
+.eco .r2{width:calc(var(--v)*47.4);height:calc(var(--v)*47.4)}
+.eco .orbit{position:absolute;left:0;top:0}
+.eco .dot{position:absolute;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px rgba(43,224,242,.85);translate:-50% -50%}
+.eco .d1{width:8px;height:8px;left:calc(var(--v)*16.6);top:calc(var(--v)*-16.6)}
+.eco .d2{width:4px;height:4px;left:calc(var(--v)*-23);top:calc(var(--v)*23);opacity:.5}
+.eco .hex{position:absolute;left:0;top:0;width:calc(var(--v)*20.8);height:calc(var(--v)*23.7);translate:-50% -50%}
+.eco .hex svg{width:100%;height:100%;overflow:visible}
+.eco .hex b{position:absolute;inset:0;display:grid;place-items:center;font:400 calc(var(--v)*3.1)/1 var(--wide);letter-spacing:.06em;color:#f1f5fb}
+.eco svg.lines{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.eco .lines line{stroke:rgba(40,150,170,.5);stroke-width:1px;transition:stroke .25s,stroke-width .25s}
+.eco .lines line.on{stroke:var(--cyan);stroke-width:1.6px}
+.eco .cat{position:absolute;z-index:3;translate:-50% -50%}
+.eco .box{display:flex;gap:10px;align-items:center;white-space:nowrap;padding:9px 15px;font-size:11.5px;letter-spacing:.12em;font-weight:500;background:rgba(6,10,20,.92);border:1px solid rgba(130,160,200,.22);color:#e9eff8;transition:background .2s,color .2s,border-color .2s}
+.eco .num{color:#3b9fb0}
+.eco .cat:hover .box{background:var(--cyan);border-color:var(--cyan);color:#03121a}
+.eco .cat:hover .num{color:#03121a}
+.eco .hint{position:absolute;left:50%;bottom:5.2vh;translate:-50% 0;z-index:4;font-size:10.5px;letter-spacing:.3em;color:rgba(232,238,247,.85);white-space:nowrap}
+@media(max-width:720px){.eco .head{font-size:10px;left:5vw}.eco .box{font-size:8.5px;padding:6px 8px;gap:6px;letter-spacing:.06em}.eco .hint{font-size:9px;letter-spacing:.2em}}
+
+/* ===== PRODUCT CATEGORIES SECTION ===== */
+.pc{--bg:#f4f6f8;--ink:#0a0e17;--mut:#7b8088;--cyan:#27dff5;--line:#d8dde3;--w:min(88vw,1680px);
+  --mono:'Cormorant',serif;--head:'Cormorant',serif;--sans:'Cormorant',serif;--cut:18px;
+  position:relative;background-color:var(--bg);color:var(--ink);font-family:var(--sans);
+  background-image:linear-gradient(rgba(30,45,70,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(30,45,70,.05) 1px,transparent 1px);background-size:72px 72px}
+.pc .mono{letter-spacing:.2em}
+.pc-wrap{width:var(--w);margin:0 auto;padding:96px 0 12vh}
+.pc-eyebrow{display:flex;align-items:center;gap:12px;font-size:11px;color:var(--mut)}
+.pc-eyebrow i{width:34px;height:1px;background:var(--mut)}
+.pc .intro{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin:26px 0 56px}
+.pc h2{font:800 clamp(34px,4.6vw,80px)/.98 var(--head);letter-spacing:-.025em;max-width:60%}
+.pc .browse{border:1px solid #c9ced6;padding:16px 22px;font-size:11px;white-space:nowrap;background:rgba(255,255,255,.4);transition:border-color .2s,background .2s}
+.pc .browse:hover{border-color:var(--ink);background:#fff}
+.pc .feat{display:grid;grid-template-columns:59fr 41fr;gap:24px}
+.pc .card{position:relative;display:block;overflow:hidden;isolation:isolate}
+.pc .card .img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.7,.2,1);z-index:-2}
+.pc .card:hover .img{transform:scale(1.03)}
+.pc .f{aspect-ratio:1.76/1;color:#fff;clip-path:polygon(0 0,calc(100% - var(--cut)) 0,100% var(--cut),100% 100%,var(--cut) 100%,0 calc(100% - var(--cut)))}
+.pc .f::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,16,26,0) 30%,rgba(7,16,26,.55) 62%,rgba(7,16,26,.92))}
+.pc .f .meta{position:absolute;left:28px;right:28px;bottom:26px}
+.pc .f .row{display:flex;justify-content:space-between;font-size:10.5px;color:var(--cyan);margin-bottom:14px}
+.pc .f h3{font:700 clamp(26px,2.9vw,50px)/1.05 var(--head);letter-spacing:-.01em}
+.pc .f p{margin:14px 0 18px;font-size:clamp(13px,1vw,16px);color:#b9c0cb}
+.pc .f .go{font-size:10.5px;color:#e9edf3}
+.pc .go em{font-style:normal;color:var(--cyan);margin-left:8px}
+.pc .small{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:24px}
+.pc .s{background:#fff;border:1px solid var(--line);clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%)}
+.pc .s .pic{position:relative;aspect-ratio:1.56/1;overflow:hidden}
+.pc .s .img{z-index:0}
+.pc .s .badge{position:absolute;top:0;right:0;z-index:2;background:#1b2130;color:var(--cyan);font:500 10px var(--mono);letter-spacing:.14em;padding:7px 10px}
+.pc .s .txt{padding:22px 22px 20px}
+.pc .s h3{font:700 clamp(17px,1.4vw,24px)/1.1 var(--head)}
+.pc .s p{margin:10px 0 22px;font-size:13.5px;line-height:1.5;color:var(--mut);min-height:40px}
+.pc .s .foot{display:flex;justify-content:space-between;font-size:10px;color:#9aa0a9;border-top:1px solid var(--line);padding-top:14px}
+.pc .s .foot em{font-style:normal;color:#1688d8}
+.pc .p1{background:radial-gradient(circle at 78% 18%,#c9552b 0 6%,transparent 7%),radial-gradient(ellipse at 62% 80%,#a8501f 0 12%,transparent 40%),linear-gradient(100deg,#8b8f97,#c5c8ce 40%,#9aa0a8 70%,#5a4a42)}
+.pc .p2{background:radial-gradient(ellipse at 60% 60%,#e7eaee 0 20%,transparent 45%),linear-gradient(120deg,#3c414b,#a7adb7 45%,#dfe3e8 70%,#7f8590)}
+.pc .p3{background:linear-gradient(120deg,#f0e6c9,#a08a5a 30%,#3a3222 70%,#c9c1a8)}
+.pc .p4{background:radial-gradient(circle at 55% 45%,#dfe6ea 0 15%,transparent 16%),linear-gradient(135deg,#1c3a52,#5b86a2 50%,#0e1b28)}
+.pc .p5{background:radial-gradient(circle at 50% 55%,#c9cdd0 0 30%,#111820 31% 100%)}
+.pc .p6{background:linear-gradient(120deg,#a5d8c6,#3fb08a 40%,#9fc9e6)}
+@media(prefers-reduced-motion:reduce){.pc .card .img{transition:none}.pc .card:hover .img{transform:none}}
+@media(max-width:1000px){.pc h2{max-width:none}.pc .intro{flex-direction:column;align-items:flex-start}.pc .small{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.pc{--w:92vw}.pc .feat,.pc .small{grid-template-columns:1fr}.pc .f{aspect-ratio:1/1.05}.pc-wrap{padding-top:72px}.pc .browse{align-self:stretch;text-align:center}}
+
+/* ===== ABOUT SECTION ===== */
+.about{--cyan:#26ddf5;--bg:#070a12;--txt:#e8ecf4;--mut:#aab2c0;--w:min(88vw,1680px);
+--mono:'Cormorant',serif;--head:'Cormorant',serif;--sans:'Cormorant',serif;
+position:relative;overflow:hidden;color:var(--txt);font-family:var(--sans);padding:clamp(72px,7vw,130px) 0 clamp(90px,9vw,170px);
+background:radial-gradient(45% 55% at 62% 40%,rgba(22,50,110,.22),transparent 70%),radial-gradient(130% 110% at 50% 50%,transparent 55%,rgba(0,0,0,.4)),linear-gradient(#070a12,#050811)}
+.about::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.13;mix-blend-mode:overlay;
+background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.about .wrap{position:relative;width:var(--w);margin:0 auto;display:grid;grid-template-columns:52.5fr 47.5fr}
+.about .left{padding-right:4vw;max-width:calc(var(--w)*.5)}
+.about .ab-eyebrow{display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.3em;color:var(--cyan);margin-bottom:clamp(22px,2vw,36px)}
+.about .ab-eyebrow i{width:30px;height:1px;background:var(--cyan)}
+.about h2{font:800 clamp(38px,3.9vw,84px)/1.06 var(--head);letter-spacing:-.03em;color:#eef1fb}
+.about .lead{margin-top:clamp(24px,2.2vw,40px);font-size:clamp(15px,1.15vw,21px);line-height:1.6;color:#dfe4ee;max-width:29em}
+.about .stat{display:flex;align-items:center;gap:clamp(16px,1.4vw,26px);margin-top:clamp(40px,4.4vw,80px)}
+.about .stat big{font:800 clamp(68px,6.8vw,132px)/.9 var(--head);color:var(--cyan);letter-spacing:-.02em;position:relative;display:block;font-variant-numeric:tabular-nums}
+.about .stat big .sz{visibility:hidden}
+.about .stat big .val{position:absolute;left:0;top:0}
+.about .stat b{display:block;font:500 clamp(18px,1.5vw,28px)/1 var(--head);color:#f1f4fa}
+.about .stat small{display:block;margin-top:12px;font-size:clamp(8.5px,.7vw,12px);letter-spacing:.3em;color:#b7bfcc}
+.about .photo{margin-top:clamp(36px,4vw,72px);width:min(100%,clamp(300px,25.5vw,480px));aspect-ratio:2.05/1;position:relative;
+clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,0 100%);
+background:radial-gradient(ellipse 20% 55% at 22% 45%,rgba(230,190,150,.35),transparent 70%),radial-gradient(ellipse 18% 60% at 48% 40%,rgba(210,150,100,.4),transparent 70%),radial-gradient(ellipse 22% 55% at 78% 50%,rgba(200,130,80,.35),transparent 70%),linear-gradient(160deg,#7a4a2c,#3a2216 55%,#1d130d)}
+.about .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,10,18,.15),rgba(7,10,18,.45))}
+.about .tl{position:relative;padding-top:2px}
+.about .line,.about .prog{position:absolute;left:0;top:8px;bottom:0;width:1px}
+.about .line{background:linear-gradient(rgba(70,120,140,.35),rgba(70,120,140,.18) 90%,transparent)}
+.about .prog{background:linear-gradient(var(--cyan),#3fa9ff);box-shadow:0 0 8px rgba(38,221,245,.5);transform-origin:top;transform:scaleY(0);will-change:transform}
+.about .item{position:relative;padding-left:clamp(28px,3vw,56px);min-height:clamp(150px,12vw,228px)}
+.about .item:last-child{min-height:0;padding-bottom:0}
+.about .node{position:absolute;left:-6.5px;top:1px;width:13px;height:13px;border-radius:50%;background:#070a12;border:1.5px solid rgba(38,221,245,.35);transition:border-color .4s,box-shadow .4s}
+.about .node::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--cyan);opacity:0;transition:opacity .4s}
+.about .item.on .node{border-color:var(--cyan);box-shadow:0 0 10px rgba(38,221,245,.55)}
+.about .item.on .node::after{opacity:1}
+.about .lab{font-size:clamp(9.5px,.72vw,13px);letter-spacing:.3em;color:var(--cyan);opacity:.75;transition:opacity .4s}
+.about .item.on .lab{opacity:1}
+.about .item h3{margin:clamp(8px,.7vw,13px) 0 clamp(14px,1.3vw,24px);font:500 clamp(22px,2vw,38px)/1.1 var(--head);color:#f4f6fb;letter-spacing:-.01em}
+.about .item p{font-size:clamp(13.5px,1.02vw,19px);line-height:1.6;color:#d3d9e4;max-width:31em}
+@media(max-width:900px){
+ .about{--w:88vw}
+ .about .wrap{grid-template-columns:1fr;gap:56px}
+ .about .left{max-width:none;padding-right:0}
+ .about .tl{padding-left:8px}
+ .about .item{min-height:0;padding-bottom:44px}
+}
+@media(prefers-reduced-motion:reduce){.about .prog{transform:scaleY(1)!important}.about .node,.about .node::after,.about .lab{transition:none}}
+
+/* ===== INDUSTRIES & APPLICATIONS SECTION (all selectors scoped under .ind) ===== */
+.ind{--cyan:#26ddf5;--w:min(72vw,1400px);--mono:'Cormorant',serif;--head:'Cormorant',serif;--sans:'Cormorant',serif;--ease:cubic-bezier(.22,.7,.2,1);
+position:relative;overflow:hidden;padding:clamp(70px,6vw,120px) 0;font-family:var(--sans);color:#e8ecf4;-webkit-font-smoothing:antialiased;
+background:radial-gradient(45% 55% at 68% 45%,rgba(22,50,110,.2),transparent 70%),radial-gradient(130% 110% at 50% 50%,transparent 55%,rgba(0,0,0,.4)),linear-gradient(#070a12,#050811)}
+.ind::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.13;mix-blend-mode:overlay;
+background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.ind button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-align:left}
+.ind .mono{font-family:var(--mono);text-transform:uppercase}
+.ind .wrap{position:relative;width:var(--w);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,3vw,60px)}
+.ind .ind-eyebrow{display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.3em;color:var(--cyan);margin-bottom:clamp(18px,1.6vw,28px)}
+.ind .ind-eyebrow i{width:26px;height:1px;background:var(--cyan)}
+.ind h2{font:800 clamp(34px,3.3vw,66px)/1.02 var(--head);letter-spacing:-.03em;color:#eef1fb}
+.ind .intro p{margin-top:clamp(18px,1.6vw,30px);font-size:clamp(14px,.95vw,18px);line-height:1.6;color:#d3d9e4;max-width:26em}
+.ind .ind-nav{margin-top:clamp(34px,3.3vw,64px);list-style:none;border-top:1px solid rgba(120,150,190,.18)}
+.ind .ind-nav li{border-bottom:1px solid rgba(120,150,190,.18)}
+.ind .row{width:100%;display:flex;align-items:center;gap:14px;height:clamp(50px,3.9vw,74px);color:#9aa3b2;transition:color .3s,padding .3s var(--ease)}
+.ind .row .n{font:500 clamp(8px,.6vw,11px)/1 var(--mono);letter-spacing:.1em;color:#7d8798;width:1.6em}
+.ind .row .t{font:500 clamp(16px,1.35vw,26px)/1.1 var(--head);letter-spacing:-.01em;flex:1}
+.ind .row .ar{font:500 14px var(--mono);color:var(--cyan);opacity:0;transform:translate(-8px,0);transition:opacity .3s,transform .35s var(--ease)}
+.ind .row:hover,.ind .row:focus-visible{color:#dfe5ee}
+.ind .row[aria-pressed="true"]{color:var(--cyan)}
+.ind .row[aria-pressed="true"] .n{color:var(--cyan)}
+.ind .row[aria-pressed="true"] .ar{opacity:1;transform:none}
+.ind .row[aria-pressed="true"] .t{text-shadow:0 0 18px rgba(38,221,245,.25)}
+.ind .row:focus-visible{outline:2px solid var(--cyan);outline-offset:-2px}
+.ind .panel{margin-top:clamp(0px,5.5vw,104px)}
+.ind .frame{position:relative;aspect-ratio:1.33/1;overflow:hidden;background:#0b111c;border:1px solid rgba(120,150,190,.14);
+clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,0 100%)}
+.ind .ph{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.035);transition:opacity .45s ease,transform .7s var(--ease)}
+.ind .ph.on{opacity:1;transform:scale(1)}
+.ind .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,8,17,.75));pointer-events:none}
+.ind .cap{position:absolute;left:14px;bottom:14px;z-index:2;font-size:clamp(8px,.6vw,11px);letter-spacing:.24em;color:#e6ecf5;display:grid}
+.ind .cap span{grid-area:1/1;opacity:0;transform:translateY(6px);transition:opacity .35s ease,transform .4s var(--ease)}
+.ind .cap span.on{opacity:1;transform:none}
+.ind .det{display:grid;margin-top:clamp(14px,1.2vw,22px)}
+.ind .det>div{grid-area:1/1;opacity:0;transform:translateY(8px);transition:opacity .35s ease,transform .4s var(--ease);pointer-events:none}
+.ind .det>div.on{opacity:1;transform:none;pointer-events:auto;transition-delay:.06s}
+.ind .det p{font-size:clamp(13px,.95vw,17px);color:#dfe4ee}
+.ind .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(14px,1.2vw,22px)}
+.ind .tags span{border:1px solid rgba(130,160,200,.3);padding:8px 12px;font:400 clamp(8px,.62vw,11px)/1 var(--mono);letter-spacing:.18em;color:#b9c2d0;text-transform:uppercase}
+.ind .g1{background:radial-gradient(ellipse 22% 40% at 30% 55%,#d8b48c,transparent 70%),radial-gradient(ellipse 20% 40% at 78% 60%,#e2c9a3,transparent 70%),linear-gradient(135deg,#4f6a62,#7d958c 50%,#3f5550)}
+.ind .g2{background:radial-gradient(ellipse 35% 50% at 45% 40%,#f2f7fb,transparent 70%),linear-gradient(160deg,#dfe8ef,#8fb3c4 60%,#4d7488)}
+.ind .g3{background:linear-gradient(180deg,#1b3f78,#3f78c9 55%,#8a5a5c 56%,#1a1a22 57%,#22242e)}
+.ind .g4{background:radial-gradient(circle at 50% 52%,#b9bdb5 0 22%,#3b3f3a 23% 34%,#0a0d10 35%)}
+.ind .g5{background:linear-gradient(120deg,#dfe6ee,#4b6aa5 45%,#22345a 70%,#b7c3d3)}
+.ind .g6{background:radial-gradient(ellipse 30% 45% at 40% 55%,#e39a3a,transparent 70%),linear-gradient(140deg,#25303f,#6b5a3e 60%,#1a1f28)}
+.ind .g7{background:linear-gradient(150deg,#e8f2f2,#7dc0c0 50%,#2b6b76)}
+@media(max-width:1200px){.ind{--w:88vw}}
+@media(max-width:900px){
+ .ind .wrap{grid-template-columns:1fr;gap:36px}
+ .ind .panel{margin-top:0}
+ .ind .frame{aspect-ratio:1.5/1}
+}
+@media(prefers-reduced-motion:reduce){.ind .ph,.ind .cap span,.ind .det>div,.ind .row .ar{transition:opacity .01s}.ind .ph{transform:none}}
+
+/* ===== SMOOTH SCROLL / UX (additive) ===== */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+.lenis.lenis-smooth iframe{pointer-events:none}
+html{-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;}
+a,button{-webkit-tap-highlight-color:transparent;}
+a:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;}
+@media (prefers-reduced-motion:no-preference){html:not(.lenis){scroll-behavior:smooth;}}
+</style>
+</head>
+<body>
+<div class="cur-dot" id="dot"></div><div class="cur-ring" id="ring"></div>
+
+<nav class="nav">
+  <a href="#home" class="logo">
+    <svg width="46" height="50" viewBox="0 0 46 50" fill="none" stroke="#22e0ff" stroke-width="2" aria-hidden="true">
+      <path d="M23 2l19 11v24L23 48 4 37V13z"/>
+      <path d="M19 14h8M21 14v8l-6 10a2 2 0 002 3h12a2 2 0 002-3l-6-10v-8" stroke-linejoin="round"/>
+    </svg>
+    <div><b>R.K. ENTERPRISES</b><small class="mono">Est. 1984 · Jaipur</small></div>
+  </a>
+  <ul class="mono">
+    <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#products">Products</a></li>
+    <li><a href="#industries">Industries</a></li><li><a href="#why-us">Why Us</a></li><li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#products" class="cta mono">Explore Products <span>↗</span></a>
+</nav>
+
+<section class="hero" id="home">
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="hero-copy">
+    <p class="eyebrow mono">Manufacturers &amp; Wholesalers of Laboratory Chemicals, Equipment &amp; Scientific Supplies</p>
+    <h1 class="h1">
+      <span>Laboratory</span>
+      <span class="grad">Products</span>
+      <span><i class="outline">Since </i>1984</span>
+    </h1>
+    <p class="lede">Manufacturers &amp; Wholesalers of Laboratory Chemicals, Equipment &amp; Scientific Supplies — serving laboratories across India from Jaipur since 1984.</p>
+  </div>
+</section>
+
+<section class="eco" id="products" aria-label="The R.K. Ecosystem">
+  <div class="bg"></div><div class="grain"></div>
+  <header class="head"><div class="title"><i></i>THE R.K. ECOSYSTEM</div><div class="sub">10 CATEGORIES — ONE SUPPLIER</div></header>
+  <svg class="lines" id="lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+  <div class="core">
+    <div class="ring r1"></div><div class="ring r2"></div>
+    <div class="orbit"><span class="dot d1"></span><span class="dot d2"></span></div>
+    <div class="hex">
+      <svg viewBox="0 0 100 114" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3fe0f7"/><stop offset="1" stop-color="#3b7cf0"/></linearGradient></defs><polygon points="50,3 97,30 97,84 50,111 3,84 3,30" fill="none" stroke="url(#g)" stroke-width="3" stroke-linejoin="round"/></svg>
+      <b>R.K.</b>
+    </div>
+  </div>
+  <div id="cats"></div>
+  <p class="hint">SCROLL TO EXPAND THE ECOSYSTEM</p>
+</section>
+
+<section class="pc" id="catalogue" aria-label="Product Categories">
+  <div class="pc-wrap">
+    <div class="pc-eyebrow mono"><i></i>Product Categories</div>
+    <div class="intro">
+      <h2>Everything a laboratory needs. From one supplier.</h2>
+      <a class="browse mono" href="#catalogue">Browse full catalogue →</a>
+    </div>
+    <div class="feat" id="feat"></div>
+    <div class="small" id="small"></div>
+  </div>
+</section>
+
+<section class="about" id="about" aria-label="About R.K. Enterprises">
+  <div class="wrap">
+    <div class="left">
+      <div class="ab-eyebrow mono"><i></i>About R.K. Enterprises</div>
+      <h2>Four decades<br>in the laboratory<br>supply chain.</h2>
+      <p class="lead">Since 1984, R.K. Enterprises has supplied chemicals, glassware, equipment and instruments to laboratories — with the same focus: dependable products and dependable supply.</p>
+      <div class="stat"><big id="count" aria-label="42 plus"><span class="sz" aria-hidden="true">42+</span><span class="val" id="val" aria-hidden="true">42+</span></big><div><b>YEARS</b><small class="mono">of laboratory industry experience</small></div></div>
+      <div class="photo" role="img" aria-label="Laboratory glassware"></div>
+    </div>
+    <div class="tl" id="tl">
+      <div class="line"></div><div class="prog" id="prog"></div>
+      <div id="items"></div>
+    </div>
+  </div>
+</section>
+
+<section class="ind" id="industries" aria-labelledby="ind-h">
+  <div class="wrap">
+    <div class="left">
+      <div class="intro">
+        <div class="ind-eyebrow mono"><i></i>Industries &amp; Applications</div>
+        <h2 id="ind-h">Where laboratory<br>products go to work.</h2>
+        <p>Broad application categories we supply into — from first-year chemistry benches to industrial QC sections.</p>
+      </div>
+      <ul class="ind-nav" id="ind-nav"></ul>
+    </div>
+    <div class="panel" aria-live="polite">
+      <div class="frame" id="ind-frame"></div>
+      <div class="det" id="ind-det"></div>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  var canvas=document.getElementById('scene'), hero=document.getElementById('home');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));
+  var scene=new THREE.Scene();
+  var camera=new THREE.PerspectiveCamera(45,1,0.1,100); camera.position.z=9;
+
+  scene.add(new THREE.AmbientLight(0xffffff,0.7));
+  var l1=new THREE.PointLight(0xbff7ff,1.4,0); l1.position.set(6,5,6); scene.add(l1);
+  var l2=new THREE.PointLight(0x8a5fd0,0.9,0); l2.position.set(-6,-4,3); scene.add(l2);
+
+  var group=new THREE.Group(); scene.add(group);
+  var seed=11; function rnd(){seed=(seed*16807)%2147483647; return (seed-1)/2147483646;}
+
+  // outer wireframe sphere
+  var R=3.6;
+  var shell=new THREE.Mesh(new THREE.IcosahedronGeometry(R,2),
+    new THREE.MeshBasicMaterial({color:0x2f6bff,wireframe:true,transparent:true,opacity:.07}));
+  group.add(shell);
+
+  // ordered structure inside: 1 core + 12 vertices of an icosahedron, joined by clean bonds
+  var inner=new THREE.Group(); group.add(inner);
+  var IR=2.3, base=new THREE.IcosahedronGeometry(1,0).attributes.position, verts=[], seen={};
+  for(var i=0;i<base.count;i++){
+    var v=new THREE.Vector3().fromBufferAttribute(base,i).multiplyScalar(IR), k=v.toArray().map(function(n){return n.toFixed(3);}).join();
+    if(!seen[k]){seen[k]=1;verts.push(v);}
+  }
+  function ball(pos,r,color,op){
+    var m=new THREE.Mesh(new THREE.SphereGeometry(r,24,24),
+      new THREE.MeshPhysicalMaterial({color:color,transparent:true,opacity:op,roughness:.25,clearcoat:1}));
+    m.position.copy(pos); inner.add(m);
+  }
+  var WHITE=0xe8f6fb, BLUE=0x3a7bff;
+  ball(new THREE.Vector3(0,0,0),0.5,WHITE,.6);
+  verts.forEach(function(v,i){ball(v,0.26,i%2?BLUE:WHITE,.6);});
+  var pts=[], edge=IR*1.06; // icosahedron edge length ~1.05*R
+  verts.forEach(function(v){pts.push(0,0,0,v.x,v.y,v.z);});               // spokes to core
+  for(var a2=0;a2<verts.length;a2++)for(var b2=a2+1;b2<verts.length;b2++){
+    if(verts[a2].distanceTo(verts[b2])<edge*1.05){pts.push(verts[a2].x,verts[a2].y,verts[a2].z,verts[b2].x,verts[b2].y,verts[b2].z);}
+  }
+  var lg=new THREE.BufferGeometry();
+  lg.setAttribute('position',new THREE.Float32BufferAttribute(pts,3));
+  inner.add(new THREE.LineSegments(lg,new THREE.LineBasicMaterial({color:0x5b8dff,transparent:true,opacity:.35})));
+
+  function resize(){
+    var w=hero.clientWidth,h=hero.clientHeight;
+    renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();
+    group.position.set(w/h>1.2?2.3:0.4,-0.3,0);
+    group.scale.setScalar(w/h>1.2?1:0.7);
+  }
+  addEventListener('resize',resize); resize();
+
+  var mx=0,my=0;
+  addEventListener('mousemove',function(e){mx=e.clientX/innerWidth*2-1; my=-(e.clientY/innerHeight*2-1);});
+
+  var t0=performance.now();
+  (function loop(){
+    var t=(performance.now()-t0)/1000;
+    var ty=(reduce?0:mx*.45+t*.07), tx=(reduce?0:-my*.25);
+    group.rotation.y+=(ty-group.rotation.y)*.05;
+    group.rotation.x+=(tx-group.rotation.x)*.05;
+    if(!reduce){inner.rotation.y=-t*.12;inner.rotation.x=t*.05;}
+    renderer.render(scene,camera);
+    requestAnimationFrame(loop);
+  })();
+
+  // custom cursor (fine pointers only)
+  if(matchMedia('(pointer: fine)').matches){
+    var dot=document.getElementById('dot'),ring=document.getElementById('ring'),x=0,y=0,rx=0,ry=0;
+    addEventListener('mousemove',function(e){
+      x=e.clientX;y=e.clientY; dot.style.transform='translate('+x+'px,'+y+'px)';
+      ring.classList.toggle('big',!!e.target.closest('a,button,.cat'));
+    });
+    (function c(){rx+=(x-rx)*.16;ry+=(y-ry)*.16;ring.style.transform='translate('+rx+'px,'+ry+'px)';requestAnimationFrame(c);})();
+  }
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+/* ===== Smooth scrolling (Lenis) synced with GSAP ScrollTrigger ===== */
+(function(){
+  if(!window.Lenis||!window.gsap||!window.ScrollTrigger)return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  gsap.registerPlugin(ScrollTrigger);
+  var lenis=new Lenis({
+    duration:1.15,
+    easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},
+    smoothWheel:true,
+    wheelMultiplier:1,
+    touchMultiplier:1.4
+  });
+  window.lenis=lenis;
+  lenis.on('scroll',ScrollTrigger.update);
+  gsap.ticker.add(function(time){lenis.raf(time*1000);});
+  gsap.ticker.lagSmoothing(0);
+
+  // smooth in-page anchor navigation (works with the pinned ecosystem section)
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="#"]');
+    if(!a)return;
+    var h=a.getAttribute('href');
+    if(!/^#[A-Za-z][\w-]*$/.test(h))return;
+    var el=document.querySelector(h);
+    if(!el)return;
+    e.preventDefault();
+    lenis.scrollTo(el,{offset:0,duration:1.6});
+  });
+})();
+</script>
+<script>
+const CX = 49.7, CY = 46;
+const CATS = [
+  ["LABORATORY CHEMICALS",[49.7,2.6],[50,12]],
+  ["LABORATORY GLASSWARE",[73.7,9],[72,22]],
+  ["LABORATORY EQUIPMENT",[88.5,31.7],[72,34]],
+  ["SCIENTIFIC INSTRUMENTS",[88.5,59.5],[72,58]],
+  ["MEASURING INSTRUMENTS",[73.7,82],[72,70]],
+  ["LABORATORY PLASTICWARE",[49.7,90.6],[50,85]],
+  ["SAFETY & PROTECTIVE EQUIPMENT",[25.8,82],[28,70]],
+  ["CONSUMABLES",[10.9,59.5],[28,58]],
+  ["TESTING EQUIPMENT",[10.9,31.7],[28,34]],
+  ["OTHER LABORATORY SUPPLIES",[25.8,9],[28,22]]
+];
+gsap.registerPlugin(ScrollTrigger);
+const eco = document.getElementById("products"), svg = document.getElementById("lines"), wrap = document.getElementById("cats");
+const mq = matchMedia("(max-width:720px)");
+let ctx;
+function build(){
+  ctx && ctx.revert();
+  svg.innerHTML = ""; wrap.innerHTML = "";
+  const m = mq.matches;
+  CATS.forEach(([name,d,mo],i)=>{
+    const id = String(i+1).padStart(2,"0"), [x,y] = m ? mo : d;
+    const l = document.createElementNS("http://www.w3.org/2000/svg","line");
+    l.setAttribute("x1",CX); l.setAttribute("y1",CY); l.setAttribute("x2",CX); l.setAttribute("y2",CY);
+    l.setAttribute("vector-effect","non-scaling-stroke"); l.dataset.tx=x; l.dataset.ty=y; l.id="l"+id;
+    svg.appendChild(l);
+    const c = document.createElement("div");
+    c.className="cat"; c.style.left=x+"%"; c.style.top=y+"%";
+    c.innerHTML = `<div class="box"><span class="num">${id}</span><span>${name.replace("&","&amp;")}</span></div>`;
+    c.onmouseenter=()=>l.classList.add("on"); c.onmouseleave=()=>l.classList.remove("on");
+    wrap.appendChild(c);
+  });
+  ctx = gsap.context(()=>{
+    const boxes = gsap.utils.toArray(".cat .box");
+    gsap.set(boxes,{autoAlpha:0,scale:.95,y:6,filter:"blur(4px)"});
+    const nav = document.querySelector(".nav");
+    const tl = gsap.timeline({
+      defaults:{ease:"power2.inOut"},
+      scrollTrigger:{trigger:eco,start:"top top",end:()=>"+="+Math.round(innerHeight*4),pin:true,scrub:.5,anticipatePin:1,invalidateOnRefresh:true,
+        onToggle:self=>nav.classList.toggle("away",self.isActive)}
+    });
+    tl.to(".orbit",{rotation:220,ease:"none",duration:10},0)
+      .to(".ring",{scale:1.08,duration:2},0)
+      .to(".hex",{scale:.82,duration:2},0)
+      .to(".hint",{autoAlpha:0,duration:1.2},.4)
+      .to(".hex",{scale:.22,duration:2.6},2)
+      .to(".ring",{scale:1.7,autoAlpha:0,duration:2.6},2)
+      .to(".orbit",{autoAlpha:0,duration:1.5},2.6)
+      .to(".hex",{autoAlpha:.55,duration:1.5},4.2);
+    svg.querySelectorAll("line").forEach((l,i)=>{
+      const at = 3 + i*.42;
+      tl.to(l,{attr:{x2:l.dataset.tx,y2:l.dataset.ty},duration:1.6,ease:"power2.out"},at)
+        .to(boxes[i],{autoAlpha:1,scale:1,y:0,filter:"blur(0px)",duration:1,ease:"power2.out"},at+.9);
+    });
+    tl.to({},{duration:.001},10);
+  }, eco);
+}
+build();
+mq.addEventListener("change",build);
+addEventListener("load",()=>ScrollTrigger.refresh());
+</script>
+<script>
+(function(){
+// Set `image` to a real photo URL to replace the gradient stand-in.
+const CATS=[
+ {number:"01",title:"Laboratory Chemicals",description:"Reagents & analytical-grade chemicals in bulk or institutional packs.",products:8,featured:true,ph:"p1",image:""},
+ {number:"02",title:"Laboratory Glassware",description:"Borosilicate glassware for precise, repeatable everyday work.",products:8,featured:true,ph:"p2",image:""},
+ {number:"03",title:"Laboratory Equipment",description:"Workhorse equipment for preparation, heating and separation.",products:8,ph:"p3",image:""},
+ {number:"04",title:"Scientific Instruments",description:"Optical & analytical instruments for accurate measurement.",products:8,ph:"p4",image:""},
+ {number:"05",title:"Measuring Instruments",description:"Dimensional & physical measurement tools for the lab bench.",products:6,ph:"p5",image:""},
+ {number:"06",title:"Laboratory Plasticware",description:"Chemical-resistant polymer ware for routine handling.",products:7,ph:"p6",image:""}
+];
+const slug=t=>"#/products/"+t.toLowerCase().replace(/\s+/g,"-");
+const bg=c=>c.image?`style="background-image:url('${c.image}')"`:"";
+const img=c=>`<div class="img ${c.image?"":c.ph}" ${bg(c)}></div>`;
+document.getElementById("feat").innerHTML=CATS.filter(c=>c.featured).map(c=>`
+<a class="card f" href="${slug(c.title)}" data-open>${img(c)}
+ <div class="meta"><div class="row mono"><span>${c.number} — ${c.title}</span><span>${c.products} products</span></div>
+ <h3>${c.title}</h3><p>${c.description}</p><span class="go mono">Explore category<em>↗</em></span></div></a>`).join("");
+document.getElementById("small").innerHTML=CATS.filter(c=>!c.featured).map(c=>`
+<a class="card s" href="${slug(c.title)}" data-open><div class="pic">${img(c)}<span class="badge">${c.number}</span></div>
+ <div class="txt"><h3>${c.title}</h3><p>${c.description}</p><div class="foot mono"><span>${c.products} products</span><span>Explore <em>↗</em></span></div></div></a>`).join("");
+})();
+</script>
+<script>
+(function(){
+const timelineItems=[
+ {label:"1984",title:"Foundation",description:"R.K. Enterprises is founded in Jaipur as a supplier of laboratory chemicals and scientific supplies."},
+ {label:"GROWTH",title:"Product Expansion",description:"The catalogue grows across glassware, equipment, instruments and everyday laboratory essentials."},
+ {label:"EXPERIENCE",title:"Trusted Supply",description:"Decades of consistent, quotation-driven supply build enduring relationships with laboratories."},
+ {label:"TODAY",title:"Modern Laboratory Solutions",description:"A ten-category catalogue serves educational, research, industrial and testing laboratories."}
+];
+document.getElementById("items").innerHTML=timelineItems.map(t=>`
+<article class="item"><span class="node"></span><div class="lab mono">${t.label}</div><h3>${t.title}</h3><p>${t.description}</p></article>`).join("");
+gsap.registerPlugin(ScrollTrigger);
+const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+if(reduce){
+ document.querySelectorAll(".about .item").forEach(i=>i.classList.add("on"));
+}else{
+ const tl=document.getElementById("tl"), prog=document.getElementById("prog");
+ const at="62%";
+ gsap.to(prog,{scaleY:1,ease:"none",scrollTrigger:{trigger:tl,start:`top+=8 ${at}`,end:`bottom ${at}`,scrub:.35,invalidateOnRefresh:true}});
+ gsap.utils.toArray(".about .item").forEach(it=>{
+  ScrollTrigger.create({trigger:it,start:`top+=8 ${at}`,invalidateOnRefresh:true,
+   onEnter:()=>it.classList.add("on"),onLeaveBack:()=>it.classList.remove("on")});
+ });
+ const val=document.getElementById("val"), n={v:0};
+ val.textContent="0+";
+ gsap.to(n,{v:42,duration:1.8,ease:"power2.out",
+  onUpdate:()=>{val.textContent=Math.round(n.v)+"+"},
+  scrollTrigger:{trigger:"#count",start:"top 88%",toggleActions:"play none none reset"}});
+ addEventListener("load",()=>ScrollTrigger.refresh());
+ document.fonts&&document.fonts.ready.then(()=>ScrollTrigger.refresh());
+}
+})();
+</script>
+<script>
+/* ===== Industries & Applications ===== */
+(function(){
+// Set `image` to a real photo URL (e.g. "/images/laboratories/educational.jpg") to replace the gradient stand-in.
+const laboratories=[
+ {title:"Educational Laboratories",label:"Educational Laboratories",description:"Teaching laboratories in schools, colleges and universities.",tags:["Glassware","Chemicals","Instruments"],image:"",ph:"g1",alt:"Two students in lab coats and goggles working at a chalkboard bench"},
+ {title:"Research Laboratories",label:"Research Laboratories",description:"Bench research across science and engineering disciplines.",tags:["Consumables","Instruments","Chemicals"],image:"",ph:"g2",alt:"Researcher in gloves pipetting samples"},
+ {title:"Industrial Laboratories",label:"Industrial Laboratories",description:"Process and QC laboratories in manufacturing plants.",tags:["Equipment","Testing Equipment","Safety"],image:"",ph:"g3",alt:"Industrial plant against a blue evening sky"},
+ {title:"Testing Laboratories",label:"Testing Laboratories",description:"Independent testing and calibration facilities.",tags:["Testing Equipment","Consumables","Glassware"],image:"",ph:"g4",alt:"Petri dish with cultured colonies"},
+ {title:"Pharmaceutical Laboratories",label:"Pharmaceutical Laboratories",description:"Formulation, QC and compliance laboratories.",tags:["Chemicals","Instruments","Safety"],image:"",ph:"g5",alt:"Technicians in cleanroom suits reviewing a tablet"},
+ {title:"Chemical Laboratories",label:"Chemical Laboratories",description:"Analysis and synthesis laboratories in chemical processing.",tags:["Chemicals","Glassware","Safety"],image:"",ph:"g6",alt:"Chemical glassware with amber solutions"},
+ {title:"Healthcare & Diagnostic Labs",label:"Healthcare & Diagnostic Labs",description:"Clinical, pathology and diagnostic laboratories.",tags:["Consumables","Plasticware","Safety"],image:"",ph:"g7",alt:"Diagnostic laboratory bench with sample tubes"}
+];
+const pad=n=>String(n+1).padStart(2,"0"), total=pad(laboratories.length-1);
+const esc=s=>s.replace(/&/g,"&amp;");
+const $=id=>document.getElementById(id);
+
+$("ind-nav").innerHTML=laboratories.map((l,i)=>`
+<li><button class="row" type="button" data-i="${i}" aria-pressed="${i===0}">
+ <span class="n">${pad(i)}</span><span class="t">${esc(l.title)}</span><span class="ar" aria-hidden="true">↗</span></button></li>`).join("");
+
+$("ind-frame").innerHTML=laboratories.map((l,i)=>`
+<div class="ph ${l.image?"":l.ph} ${i===0?"on":""}" ${l.image?`style="background-image:url('${l.image}')"`:""} role="img" aria-label="${l.alt}"></div>`).join("")
+ +`<div class="cap mono">${laboratories.map((l,i)=>`<span class="${i===0?"on":""}">${pad(i)} / ${total} — ${esc(l.label)}</span>`).join("")}</div>`;
+
+$("ind-det").innerHTML=laboratories.map((l,i)=>`
+<div class="${i===0?"on":""}"><p>${l.description}</p><div class="tags">${l.tags.map(t=>`<span>${t}</span>`).join("")}</div></div>`).join("");
+
+const root=$("industries");
+const rows=[...root.querySelectorAll(".row")], phs=[...root.querySelectorAll(".ph")],
+      caps=[...root.querySelectorAll(".cap span")], dets=[...$("ind-det").children];
+let active=0;
+function setActive(i){
+ if(i===active)return; active=i;
+ rows.forEach((r,k)=>r.setAttribute("aria-pressed",k===i));
+ [phs,caps,dets].forEach(a=>a.forEach((el,k)=>el.classList.toggle("on",k===i)));
+}
+rows.forEach((r,i)=>{
+ r.addEventListener("mouseenter",()=>setActive(i));   // hover
+ r.addEventListener("focus",()=>setActive(i));        // keyboard
+ r.addEventListener("click",()=>setActive(i));        // touch / tap stays selected
+});
+// section sits below a pinned/animated area, so refresh trigger positions once it's in the DOM
+addEventListener("load",()=>window.ScrollTrigger&&ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
